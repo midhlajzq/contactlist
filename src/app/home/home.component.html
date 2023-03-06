@@ -1,0 +1,36 @@
+<div class="container">
+    <div><h1 class="text-center text-primary">Contact Details</h1></div>
+    <div class="container-fluid">
+        <input type="text" [(ngModel)]="searchKey" class="form-control" placeholder="Search Contacts Here">
+    </div>
+    <div class="container-fluid">
+        <table class="table table-bodered table text-center text-primary p-5 mt-5">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Phone </th>
+                    <th>Address</th>
+                    <th>Commpany Name </th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody  >
+             <tr  *ngFor="let contact of allContacts|pipe :searchKey:'name'">
+                    <td>{{contact.firstName}} {{contact.lastName}}</td>
+                    <td><img width="100px" height="100px" src="{{contact.image}}" alt=""></td>
+                    <td>{{contact.age}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>{{contact.address.address}},{{contact.address.city}}</td>
+                    <td>{{contact.company.name}}</td>
+                    <td>{{contact.company.title}}</td>
+             </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
